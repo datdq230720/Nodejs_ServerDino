@@ -1,0 +1,153 @@
+<div class="body_index2">
+    <div class="header_index2">
+        <div class="headr_logo">
+            <img src="images/logo.png" />
+            <h2>Dino Account</h2>
+        </div>
+        <div class="header_account">
+            <img src="{{user.image}}" />
+            <p class="mt-3">{{user.username}}</p>
+            <a href="/log-out"><button>Log out</button></a>
+        </div>
+    </div>
+
+    <ul class="menu-list">
+        <a onclick="redicrectHome('{{user._id}}')" class="tablinks">
+            <li>Home</li>
+        </a>
+        <a href="/xep-hang" class="tablinks" style="color: red;
+            border-bottom: 2px solid red;">
+            <li>Rank</li>
+        </a>
+        <a href="/thu-vien" class="tablinks">
+            <li>Library</li>
+        </a>
+        {{!-- <a href="/ho-tro" class="tablinks">
+            <li>Hỗ trợ</li>
+        </a> --}}
+        <a href="/nap-the" class="tablinks">
+            <li>Recharge</li>
+        </a>
+        <a href="/images/game/DinoAdventure.exe" class="tablinks">
+            <li>Download</li>
+        </a>
+    </ul>
+
+    <div id="trang_chu" class="tabcontent">
+        <div class="xep-hang">
+            <div class="xh-menu">
+                <button class="tab_links" onclick="openXh(event, 'sum_point')" id="defaultOpen">Total score</button>
+                <button class="tab_links" onclick="openXh(event, 'normal_point')">Easy</button>
+                <button class="tab_links" onclick="openXh(event, 'hard_point')">Hard</button>
+            </div>
+            <div class="xh-table">
+                <div id="sum_point" class="tab-xh">
+                    <table>
+                        <thead>
+                            <tr style="background-color: rgb(234, 255, 255);">
+                                <th>Top</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each top}}
+                            <td>{{this.index}}</td>
+                            <td>
+                                <div
+                                    style="height: 100%; display: flex; flex-direction: row; align-items: center; justify-content: left;">
+                                    <p><img style="margin-left: 20px" src="{{this.image}}" width="30" height="30" /></p>
+                                    <p style="margin-left: 10px">{{this.username}}</p>
+                                </div>
+                            </td>
+                            <td>{{this.points}}</td>
+                            <tr />
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="normal_point" class="tab-xh">
+                    <table>
+                        <thead>
+                            <tr style="background-color: rgb(234, 255, 255);">
+                                <th>Top</th>
+                                <th>Name</th>
+                                <th>Map</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each lv1}}
+                            <td>{{this.index}}</td>
+                            <td>
+                                <div
+                                    style="height: 100%; display: flex; flex-direction: row; align-items: center; justify-content: left;">
+                                    <img style="margin-left: 20px" src="{{this.image}}" width="30" height="30" />
+                                    <p style="margin-left: 10px">{{this.username}}</p>
+                                </div>
+                            </td>
+                            <td>{{this.map}}</td>
+                            <td>{{this.point}}</td>
+                            <tr />
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="hard_point" class="tab-xh">
+                    <table>
+                        <thead>
+                            <tr style="background-color: rgb(234, 255, 255);">
+                                <th>Top</th>
+                                <th>Name</th>
+                                <th>Map</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each lv2}}
+                            <td>{{this.index}}</td>
+                            <td>
+                                <div
+                                    style="height: 100%; display: flex; flex-direction: row; align-items: center; justify-content: left;">
+                                    <img style="margin-left: 20px" src="{{this.image}}" width="30" height="30" />
+                                    <p style="margin-left: 10px">{{this.username}}</p>
+                                </div>
+                            </td>
+                            <td>{{this.map}}</td>
+                            <td>{{this.point}}</td>
+                            <tr />
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const redicrectHome = (_id) => {
+        window.location.href = `user`
+    }
+
+    document.getElementById("defaultOpen").click();
+    function openXh(evt, cityName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tab-xh");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tab_links");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("sum_point").style.display = "block";
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+</script>

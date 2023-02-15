@@ -1,0 +1,120 @@
+  
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    {{> nav_users}}
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Danh sách người chơi</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <tbody>
+                      {{#each users}}
+                      {{#if status}}
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="{{this.image}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="text-xs font-weight-bold mb-0">{{this.username}}</p>
+                            <p class="text-xs text-secondary mb-0">{{this.email}}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">Điểm số người chơi</p>
+                        <p class="text-xs text-secondary mb-0">{{this.points}}</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">Số dư tài khoản</p>
+                        <p class="text-xs text-secondary mb-0">{{this.price}}</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <p class="text-xs font-weight-bold mb-0">Ngày tạo tài khoản</p>
+                        <p class="text-xs text-secondary mb-0">{{this.Date}}</p>
+                      </td>
+                      <td class="align-middle">                         
+                        <button onclick="goDelete('{{this._id}}')" data-toggle="modal"
+                          data-target="#confirmModal" class="btn btn-link text-success text-danger">Chặn</button>
+                                                  
+                      </td>
+                    </tr>
+                    {{/if}}
+            {{/each}}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Danh sách người chơi bị chặn</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <tbody>
+                      {{#each users}}
+                      {{#if status}}
+                    {{else}}
+                    <tr class="text-danger">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="{{this.image}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="text-xs font-weight-bold mb-0">{{this.username}}</p>
+                            <p class="text-xs text-secondary mb-0 ">{{this.email}}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">Điểm số người chơi</p>
+                        <p class="text-xs text-secondary mb-0 text-danger">{{this.points}}</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">Số dư tài khoản</p>
+                        <p class="text-xs text-secondary mb-0 text-danger">{{this.price}}</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <p class="text-xs font-weight-bold mb-0">Ngày tạo tài khoản</p>
+                        <p class="text-xs text-secondary mb-0 text-danger">{{this.Date}}</p>
+                      </td>
+                      <td class="align-middle">                                           
+                        <button onclick="goUpdate('{{this._id}}')" data-toggle="modal"
+                          data-target="#confirmModalUpdate" class="btn btn-link text-success">Bỏ chặn</button>                                             
+                      </td>
+                    </tr>
+                    {{/if}}
+            {{/each}}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  

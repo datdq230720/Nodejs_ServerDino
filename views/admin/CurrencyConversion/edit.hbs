@@ -1,0 +1,46 @@
+
+{{> aside_conversion}}
+  {{> main_edit_conversion}}
+  {{> settings}}
+  <style>
+    .gradient-custom {
+/* fallback for old browsers */
+background: #f6d365;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+  </style>
+
+<script>
+
+  const edit = (id) => {  
+        window.location.href = `admin/character/information/${id}/edit`
+    }
+   let deleted_id;
+
+    const goDelete = (id) => {
+        deleted_id = id;
+    }
+
+    const fetchAPI = async (url, option) => {
+        const res = await fetch(url, option);
+        return res.json();
+    }
+alert
+    const onDelete = async () => {
+        const url = `http://localhost:3000/products/${deleted_id}/delete`;
+        const option = {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/products';
+        } catch (e) { console.log('Delete error: ', e) }
+    }
+
+</script>

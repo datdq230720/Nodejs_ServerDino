@@ -1,0 +1,113 @@
+  <div class="main-content position-relative max-height-vh-100 h-100">
+    <!-- Navbar -->
+    {{> nav_profile}}
+    <!-- End Navbar -->
+    <div class="container-fluid px-2 px-md-4">
+      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        <span class="mask  bg-gradient-primary  opacity-6"></span>
+      </div>
+      <div class="card card-body mx-3 mx-md-4 mt-n6">
+
+<form method="post" action="/admin/profile/edit">
+          <div class="row g-0">
+            <div class="col-md-4 border text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="{{admin.image}}"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                <br>
+              <input type="text" value="{{admin.name}}" name="name" required><br>
+              <button class="btn btn-success mt-5" type="submit">Submit</button>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information: {{admin.username}}</h6>
+                <div class="row pt-1">
+                  <div class="col-8 mb-3">
+                    <h6>Email</h6>
+                    <input type="email" class="col-7" value="{{admin.email}}" name="email" required>
+                  </div>
+                  <div class="col-4 mb-3">
+                    <h6>Phone</h6>
+                    <input type="number" value="{{admin.phone}}" name="phone" required>
+                  </div>
+                  <div class="col-8 mb-3">
+                    <h6>Address</h6>
+                    <input type="text" value="{{admin.address}}" name="address" required>
+                  </div>
+                  <div class="col-4 mb-3">
+                    <h6>Passport</h6>
+                    <input type="text" value="{{admin.CMND}}" name="CMND" required>
+                  </div>
+                  <div class="col-8 mb-3">
+                    <h6>Birthday</h6>
+                    <input type="date" value="{{admin.birthday}}" name="birthday" required>
+                  </div>
+                  <div class="col-4 mb-3">
+                    <h6>Age</h6>
+                    <input type="number" value="{{admin.age}}" name="age" required>
+                  </div>
+                  <div class="col-8 mb-3">
+                    <h6>Description</h6>
+                    <textarea name="description" id="" cols="30" rows="3" required>{{admin.description}}</textarea>
+                  </div>
+                  <div class="col-4 mb-3">
+                    <h6>Sex</h6>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" value="Nam" id="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Nam
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sex" value="Nữ" id="flexRadioDefault2" >
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Nữ
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <hr class="mt-0 mb-4">
+                <h6>Account:</h6>
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <a class="fs-6" href="/admin/profile/change-password">Reset password</a>
+                  </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+  <style>
+    .gradient-custom {
+/* fallback for old browsers */
+background: #f6d365;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+  </style>
+
+  <script>
+    const google = () => {
+    window.location.href = `/auth/admin/google`
+
+    const updatePassword = (id) => {
+    window.location.href = `/user/${id}/forgot-password`
+}
+
+const checkPassword = (id) => {
+    window.location.href = `/user/check-password`
+}
+}
+  </script>

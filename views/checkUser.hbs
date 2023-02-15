@@ -1,0 +1,17 @@
+<div class="forgot_password">
+    <div class="fogot_logo">
+        <a href="index.html">Dino Account</a>
+    </div>
+    <div class="fogot_form">
+        <form class="form_in" method="post" action="/check-user">
+            <h2>Quên mật khẩu</h2>
+            <br>
+            <input type="text" placeholder="Nhập tên tài khoản" id="username" name="username" class="in_email">
+            <p style="width: 100%; font-size:12px; text-align: left;
+                color: red; font-family: Arial, Helvetica, sans-serif;margin-bottom: 10px;">
+                {{messages}}{{check}}</p>
+            <button type="submit" class="submit_dn" onclick="myFunction()">Xác nhận</button>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+{
+  "name": "dino_aventure",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdi/font": "^7.0.96",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "go": "^3.0.1",
+    "googleapis": "^108.0.0",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "open": "^8.4.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "query-string": "^7.1.1"
+  }
+}

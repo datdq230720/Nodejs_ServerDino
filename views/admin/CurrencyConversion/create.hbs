@@ -1,0 +1,77 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<form class="jotform-form" method="post" name="contactForm" onsubmit="return validateForm()" action="/admin/currency_conversion/post" enctype="multipart/form-data">
+  <input type="hidden" name="formID" value="222315134987458" />
+  <input type="hidden" id="JWTContainer" value="" />
+  <input type="hidden" id="cardinalOrderNumber" value="" />
+  <div role="main" class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group  header-large">
+          <div class="header-text httal htvam">
+            <h1 id="header_1" class="form-header" data-component="header">
+              Thêm chuyển đổi tiền tệ
+            </h1>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_6">
+        <label class="form-label form-label-left form-label-auto" id="label_6" for="input_6"> Số tiền nạp vào </label>
+        <div id="cid_6" class="form-input">
+           <input type="number" id="money" name="money" class="form-textbox" data-defaultvalue="" size="24" value="" placeholder=" " data-component="textbox" aria-labelledby="label_4" required/>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_6">
+        <label class="form-label form-label-left form-label-auto" id="label_6" for="input_6"> Số tiền sau khi quy đổi </label>
+        <div id="cid_6" class="form-input">
+           <input type="number" id="exchangeMoney" name="exchangeMoney" class="form-textbox" data-defaultvalue="" size="24" value="" placeholder=" " data-component="textbox" aria-labelledby="label_4" required/>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_2">
+        <div id="cid_2" class="form-input-wide">
+          <div style="margin-left:156px;" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+            <a href="/admin/currency_conversion" id="back"  class="submit-button btn jf-form-buttons jsTest-submitField" >
+              Back
+            </a>
+            <button id="input_2" type="submit" class=" btn submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+              Submit
+            </button>
+          </div>
+        </div>
+      </li>
+      <li style="display:none">
+        Should be Empty:
+        <input type="text" name="website" value="" />
+      </li>
+    </ul>
+  </div>
+  <script>
+  JotForm.showJotFormPowered = "new_footer";
+  </script>
+  <script>
+  JotForm.poweredByText = "Powered by Jotform";
+  </script>
+  <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="222315134987458" />
+  <script type="text/javascript">
+  var all_spc = document.querySelectorAll("form[id='222315134987458'] .si" + "mple" + "_spc");
+for (var i = 0; i < all_spc.length; i++)
+{
+  all_spc[i].value = "222315134987458-222315134987458";
+}
+  </script>
+</form>
+
+<script>
+
+    function validateForm() {
+        var money = document.forms["contactForm"]["money"].value;
+        var exchangeMoney = document.forms["contactForm"]["exchangeMoney"].value;
+
+        if (money == null || money == "") {
+            alert("Chưa nhập số tiền nạp vào");
+            return false;
+        } else if (exchangeMoney == null || exchangeMoney == "") {
+            alert("Chưa nhập số tiền sau khi quy đổi");
+            return false;
+        }
+    }
+</script>

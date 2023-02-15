@@ -1,0 +1,119 @@
+<div class="body_index2">
+    <div class="header_index2">
+        <div class="headr_logo">
+            <img src="images/logo.png" />
+            <h2>Dino Account</h2>
+        </div>
+        <div class="header_account">
+            <img src="{{user.image}}" />
+            <p class="mt-3">{{user.username}}</p>
+            <a href="/log-out"><button>Log out</button></a>
+        </div>
+    </div>
+
+    <ul class="menu-list">
+        <a onclick="redicrectHome('{{user._id}}')" class="tablinks">
+            <li>Home</li>
+        </a>
+        <a href="/xep-hang" class="tablinks">
+            <li>Rank</li>
+        </a>
+        <a href="/thu-vien" class="tablinks">
+            <li>Library</li>
+        </a>
+        {{!-- <a href="/ho-tro" class="tablinks">
+            <li>Hỗ trợ</li>
+        </a> --}}
+        <a href="/nap-the" class="tablinks" style="color: red;
+            border-bottom: 2px solid red;">
+            <li>Recharge</li>
+        </a>
+        <a href="/images/game/DinoAdventure.exe" class="tablinks">
+            <li>Download</li>
+        </a>
+    </ul>
+
+    <div class="tabcontent">
+        <div class="nap_the">
+            <div class="coins">
+                <div class="tab_coin">
+                    <h3 class="tablinks"
+                        style="padding:10px 15px 10px 15px; border-bottom: 1px solid rgb(175, 175, 175); color:red;">
+                        <p>Price</p>
+                        <p>Coin</p>
+                    </h3>
+                    {{#each exchangeMoney}}
+                        <button class="tablinks" onclick="getMoney({{this.money}}, {{this.exchangeMoney}})">
+                        <p type="number">{{this.money}}&nbsp;$</p>
+                        <div class="items_coin">
+                            <p><img src="images/coin.png"></p>
+                            <p>&nbsp;x{{this.exchangeMoney}}</p>
+                        </div>
+                    </button>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="info_coins">
+                <form role="form" method="post" action="/nap-the" class="tabcontent_icon" onsubmit="return validation()">
+                    <h4 class="hr_line">Transaction details</h4>
+                    <div class="info2_coin hr_line">
+                        <p>Selected product</p>
+                        <div class="items_coin">
+                            <input id="coin" type="text" class="input_coin" value="0" disabled="true">&nbsp;
+                            <img src="images/coin.png">
+                        </div>
+                    </div>
+                    <div class="info2_coin hr_line">
+                        <p>Price:</p>
+                        <div class="items_coin">
+                            <p><input id="VND" type="text" class="input_coin" value="0" disabled="true">&nbsp;</p>
+                            <p>$</p>
+                        </div>
+                    </div>
+                    <div class="info2_coin hr_line">
+                        <p>Payment methods:</p>
+                        <P>MoMo Wallet</p>
+                    </div>
+                    <div class="info2_coin hr_line">
+                        <p>Account name in game:</p>
+                        <P>{{user.name}}</p>
+                    </div>
+                    <input id="price" type="text" name="price" value="0" style="display: none;" />
+                    <input id="amount" type="text" name="amount" value="0" style="display: none;" />
+                    <button type="submit" id="submit" class="bt_pay">Payment processing</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    
+
+    function getMoney(VND, coin) {
+        document.getElementById('coin').value = coin;
+        document.getElementById('VND').value = VND;
+
+        document.getElementById('price').value = coin;
+        document.getElementById('amount').value = VND;
+
+    }
+
+    function validation() {
+        const VND = document.getElementById('VND').value;
+        if (VND == 0) {
+            alert('Please select the amount you want to deposit');
+            return false;
+        }
+    }
+
+    const index = (id) => {
+    window.location.href = `/user`
+}
+
+
+    const redicrectHome = (_id) => {
+        window.location.href = `user`
+    }
+
+</script>

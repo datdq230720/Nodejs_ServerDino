@@ -1,0 +1,56 @@
+  {{> aside_products}}
+  {{> main_products}}
+  {{> settings}}
+<!--  Modals-->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirm action</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <h3>Are you sure delete product?</h3>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="onDelete()" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals-->
+
+
+
+<script>
+    const edit = (id) => {
+        window.location.href = `products/${id}/edit`
+    }
+
+   let deleted_id;
+
+    const goDelete = (id) => {
+        deleted_id = id;
+    }
+
+    const fetchAPI = async (url, option) => {
+        const res = await fetch(url, option);
+        return res.json();
+    }
+alert
+    const onDelete = async () => {
+        const url = `http://localhost:3000/products/${deleted_id}/delete`;
+        const option = {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/products';
+        } catch (e) { console.log('Delete error: ', e) }
+    }
+
+</script>

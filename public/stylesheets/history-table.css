@@ -1,0 +1,109 @@
+.userhistory {
+    background-color: white;
+    width: 66%;
+    border: 1px solid rgb(227, 236, 240);
+    padding: 15px 15px 15px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid rgb(227, 236, 240);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.history-all a {
+    text-decoration: none;
+    color: aqua;
+}
+
+.history-all a:hover {
+    color: aqua;
+    text-decoration: underline;
+}
+
+table {
+    border: 1px solid rgb(227, 236, 240);
+}
+
+thead {
+    background-color: rgb(246, 248, 248);
+}
+
+th {
+    width: 25%;
+    height: 30px;
+    border-bottom: 1px solid rgb(227, 236, 240);
+    color: rgb(122, 122, 122);
+    font-weight: 100;
+    font-size: 13px;
+}
+
+td {
+    text-align: center;
+    height: 45px;
+    font-weight: 100;
+    font-size: 12px;
+    color: rgb(122, 122, 122);
+}
+
+/* <div class="userhistory">
+        <div class="user_table">
+            <div class="history-action">
+                <p>KHO ĐỒ CÁ NHÂN</p>
+                <div class="history-all">
+                    <p>Lịch sử 5 hoạt động gần đây nhất của bạn.</p>
+                    <a href="#">Xem thêm</a>
+                </div>
+            </div>
+            <div class="history-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ngày tháng</th>
+                            <th>Quốc gia</th>
+                            <th>IP</th>
+                            <th>Hoạt động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{user.Date}}</td>
+                            <td>VN</td>
+                            <td>113.161.131.10</td>
+                            <td>Thay đổi tên</td>
+                        </tr>
+                        <tr>
+                            <td>{{user.Date}}</td>
+                            <td>VN</td>
+                            <td>115.79.63.187</td>
+                            <td>Đăng ký tài khoản</td>
+                        </tr>
+                        <tr>
+                            <td>2015-07-22 13:43:1 GMT+7</td>
+                            <td>VN</td>
+                            <td>115.79.63.187</td>
+                            <td>Nạp tiền</td>
+                        </tr>
+                        <tr>
+                            <td>2015-07-22 13:43:1 GMT+7</td>
+                            <td>VN</td>
+                            <td>115.79.63.187</td>
+                            <td>Nạp tiền</td>
+                        </tr>
+                        <tr>
+                            <td>2015-07-22 13:43:1 GMT+7</td>
+                            <td>VN</td>
+                            <td>115.79.63.187</td>
+                            <td>Nạp tiền</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> */

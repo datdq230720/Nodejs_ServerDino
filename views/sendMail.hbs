@@ -1,0 +1,19 @@
+<div class="forgot_password">
+        <div class="fogot_logo">
+            <a href="index.html">Dino Account</a>
+        </div>
+        <div class="fogot_form">
+            <form class="form_in" method="post" action="/send-mail">
+                <h2>Quên mật khẩu</h2>
+                <br>
+                <input type="email" placeholder="Nhập email liên kết tài khoản" id="email" name="email" class="in_email">
+                <button type="submit" class="submit_dn" onclick="checkEmail()">Gửi đến email</button>
+            </form>
+        </div>
+        
+    </div>
+    <script>
+        function checkEmail(){
+            alert("Đã gửi qua mail")
+        }
+    </script>

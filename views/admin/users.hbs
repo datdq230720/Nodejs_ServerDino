@@ -1,0 +1,98 @@
+  {{> aside_user}}
+  {{> main_user}}
+  {{> settings}}
+<!--  Modals-->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Chặn người dùng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <h4>Bạn có chắc muốn chặn người chơi này  ?</h4>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="onDelete()" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals-->
+
+<!--  Modals-->
+<div class="modal fade" id="confirmModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Bỏ chặn người dùng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <h4>Bạn có chắc muốn bỏ chặn người chơi này  ?</h4>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="onUpdate()" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals-->
+
+<script>
+
+   let deleted_id;
+
+    const goDelete = (_id) => {
+        deleted_id = _id;
+        console.log(">>>>>>: "+deleted_id);
+    }
+
+    const fetchAPI = async (url, option) => {
+        const res = await fetch(url, option);
+        return res.json();
+    }
+alert
+    const onDelete = async () => {
+        const url = `http://localhost:3000/admin/users/${deleted_id}/ban`;
+        const option = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/admin/users/1';
+        } catch (e) { console.log('Delete error: ', e) }
+    }
+</script>
+<script>
+// bỏ chặn người dùng
+   let update_id;
+
+    const goUpdate = (_id) => {
+        update_id = _id;
+        console.log(">>>>>>: "+update_id);
+    }
+
+    
+alert
+    const onUpdate = async () => {
+        const url = `http://localhost:3000/admin/users/${update_id}/update`;
+        const option = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/admin/users/1';
+        } catch (e) { console.log('Update error: ', e) }
+    }
+</script>
+
+

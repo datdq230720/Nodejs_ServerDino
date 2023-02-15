@@ -1,0 +1,107 @@
+
+{{> aside_monter}}
+  {{> main_monter}}
+  {{> settings}}
+
+<!--  Modals-->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Ẩn quái vật</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <h4>Bạn có chắc muốn ẩn quái vật này?</h4>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Trở về</button>
+                        <button type="button" onclick="onHidden()" class="btn btn-primary">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals-->
+
+<!--  Modals-->
+<div class="modal fade" id="confirmModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Bỏ ẩn quái vật</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <h4>Bạn có chắc muốn bỏ ẩn quái vật này?</h4>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Trở về</button>
+                        <button type="button" onclick="onUnHidden()" class="btn btn-primary">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals-->
+
+  <script>
+  const edit = (id) => {
+        window.location.href = `monter/information/${id}/edit`
+    }
+
+  const profile = (id) => {
+        window.location.href = `monter/information/${id}/profile`
+    }
+</script>
+
+<script>
+
+   let hidden_id;
+
+    const goHidden = (_id) => {
+        hidden_id = _id;
+    }
+
+    const fetchAPI = async (url, option) => {
+        const res = await fetch(url, option);
+        return res.json();
+    }
+alert
+    const onHidden = async () => {
+        const url = `http://localhost:3000/admin/monter/${hidden_id}/hidden`;
+        const option = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/admin/monter';
+        } catch (e) { console.log('Delete error: ', e) }
+    }
+</script>
+
+<script>
+   let unhidden_id;
+
+    const goUnHidden = (_id) => {
+        unhidden_id = _id;
+        console.log(">>>>>>: "+unhidden_id);
+    }
+
+    
+alert
+    const onUnHidden = async () => {
+        const url = `http://localhost:3000/admin/monter/${unhidden_id}/unhidden`;
+        const option = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' }
+        }
+        try {
+            await fetchAPI(url, option);
+            window.location.href = '/admin/monter';
+        } catch (e) { console.log('Update error: ', e) }
+    }
+</script>

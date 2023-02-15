@@ -1,0 +1,44 @@
+
+<div class="xh-menu">
+    <button class="tab_links" onclick="openCity(event, 'sum_point')">London</button>
+    <button class="tab_links" onclick="openCity(event, 'normal_point')">Paris</button>
+    <button class="tab_links" onclick="openCity(event, 'hard_point')">Tokyo</button>
+</div>
+
+<!-- Tab content -->
+<div id="sum_point" class="tab-xh">
+    <h3>London</h3>
+    <p>London is the capital city of England.</p>
+</div>
+
+<div id="normal_point" class="tab-xh">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+</div>
+
+<div id="hard_point" class="tab-xh">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+</div>
+<script>
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tab-xh");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tab_links");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>

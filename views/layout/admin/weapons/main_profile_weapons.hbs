@@ -1,0 +1,47 @@
+ <div class="main-content position-relative max-height-vh-100 h-100">
+    <!-- Navbar -->
+      {{> nav_weapons}}
+    <!-- End Navbar -->
+    <div class="container-fluid px-2 px-md-4">
+      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        <span class="mask  bg-gradient-primary  opacity-6"></span>
+      </div>
+      <div class="card card-body mx-3 mx-md-4 mt-n6">
+
+          <div class="row g-0">
+            <div class="col-md-4 border text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="{{weapons.image}}" alt="Avatar" class="img-fluid my-5" style="width: 80" />
+            </div>
+            <div class="col-md-8 mt-5">
+              <div class="card-body p-4">
+                <h6>Information: {{weapons.name}}</h6>
+                <div class="row pt-1">
+                  <div class="col-12 mb-3">
+                    <textarea name="" class="text-muted col-12" id="" cols="30" rows="3" disabled>{{weapons.describes}}</textarea>
+                  </div>
+                </div>
+                <h6>Dame</h6>
+                <div class="row pt-1">
+                  <div class="col-12 mb-3">
+                    <textarea name="" class="text-muted col-12" id="" cols="30" rows="1" disabled>{{weapons.dame}}</textarea>
+                  </div>
+                </div>
+                <h6>Point</h6>
+                <div class="row pt-1">
+                  <div class="col-12 mb-3">
+                    <textarea name="" class="text-muted col-12" id="" cols="30" rows="1" disabled>{{weapons.point}}</textarea>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div class="body_login">
+        <div class="title_logo">
+            <img src="/images/4.png"/>
+        </div>
+        <form method="post" name="contactForm" onsubmit="return validateForm()" action="/admin/check-account">
+        <div class="header_login">
+            <h1>Nhập tên tài khoản</h1>
+            <hr>
+            <label for="username"><b></b></label>
+                <input type="text" placeholder="Nhập tên tài khoản" name="username" id="username">
+                <p style="width: 100%; font-size:12px; text-align: center;
+                color: red; font-family: Arial, Helvetica, sans-serif;margin-bottom: 10px;">
+                {{messages}}{{check}}</p>
+            <hr>
+            <button  type="submit" class="submit submit_dn">Xác nhận</button>
+        </div>
+        </form>
+    </div>
+
+
+<script>
+
+function validateForm() {
+    var username = document.forms["contactForm"]["username"].value;
+    // var sname = document.getElementById("sname").value;
+ 
+    if (username == null || username == "") {
+        alert("Chưa nhập tên tài khoản");
+        return false;
+    }
+}
+</script>
+

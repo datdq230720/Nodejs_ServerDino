@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+
+  }
+body {
+    background-color: #F7F9FA;
+}
+.forgot_password {
+    background-color: #F7F9FA;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fogot_logo {
+    border-bottom: 0.1px solid rgb(224, 224, 224);
+    padding: 10px 5% 10px 5%;
+    background-color: white;
+    width: 100%;
+}
+.fogot_logo a{
+    text-decoration: none;
+    color: rgb(0, 208, 255);
+    font-family: 'VT323';
+    font-size: 60px;
+}
+.fogot_form{
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid rgb(227, 236, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px 25px 25px;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+}
+.fogot_form input{
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+hr {
+    margin: 10px 0 10px 0;
+    color: #f1f1f1;
+    size: 0.5px;
+}
+.form_in {
+    display: flex;
+    flex-direction: column;
+}
+.fogot_form button{
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: inline-block;
+    border: none;
+    background: #9b0000;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size:15px;
+    
+}
+.fogot_form button:hover{
+    background: #ff0000;
+}
+

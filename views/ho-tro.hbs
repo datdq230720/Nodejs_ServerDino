@@ -1,0 +1,99 @@
+<div class="body_index2">
+    <div class="header_index2">
+        <div class="headr_logo">
+            <img src="/images/logo.png" />
+            <h2>Dino Account</h2>
+        </div>
+        <div class="header_account">
+            <img src="{{user.image}}" />
+            <p>{{user.username}}</p>Log out</button></a>
+        </div>
+    </div>
+
+    <ul class="menu-list">
+        <a href="/user" class="tablinks">
+            <li>Home</li>
+        </a>
+        <a href="/xep-hang" class="tablinks">
+            <li>Rank</li>
+        </a>
+        <a href="/thu-vien" class="tablinks">
+            <li>Library</li>
+        </a>
+        {{!-- <a href="/ho-tro" class="tablinks" style="color: red;
+            border-bottom: 2px solid red;">
+            <li>Hỗ trợ</li>
+        </a> --}}
+        <a href="/nap-the" class="tablinks">
+            <li>Recharge</li>
+        </a>
+    </ul>
+
+    <div id="trang_chu" class="tabcontent" >
+
+        <div class="table-history" id="action">
+            <h1>Operation history</h1>
+            <div id="table-wrapper">
+                <div id="table-scroll">
+                    <table>
+                        <tr>
+                            <th>Action</th>
+                            <th>Date</th>
+                        </tr>
+                        
+                        {{#each history}}
+                        <tr>
+                            <td>{{this.action}}</td>
+                            <td>{{this.date}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="table-history" id="receipt" >
+            <h1>Transaction history</h1>
+            <div id="table-wrapper">
+                <div id="table-scroll">
+                    <table>
+                        <tr>
+                            <th>Denominations</th>
+                            <th>Coin</th>
+                            <th>Date</th>
+                        </tr>
+                        
+                        {{#each receipt}}
+                        <tr>
+                            <td>{{this.price}}</td>
+                            <td>{{this.coin}}</td>
+                            <td>{{this.date}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="text" id="loai" value="{{loai}}" hidden>
+
+<script>
+
+    const _loai = document.getElementById('loai').value ;
+    if(_loai == "receipt"){
+        document.getElementById("receipt").style.display = "block";
+        document.getElementById("action").style.display = "none";
+    }else if(_loai == "action"){
+        document.getElementById("receipt").style.display = "none";
+        document.getElementById("action").style.display = "block";
+    }
+    console.log(">>>>>"+ _loai)
+
+    const redicrectHome = (_id) => {
+        window.location.href = `user`
+    }
+    
+    
+
+</script>

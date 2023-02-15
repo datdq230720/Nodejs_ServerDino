@@ -1,0 +1,185 @@
+<div class="body_index2">
+    <div class="header_index2">
+        <div class="headr_logo">
+            <img src="images/logo.png" />
+            <h2>Dino Account</h2>
+        </div>
+        <div class="header_account">
+            <img src="{{user.image}}" />
+            <p class="mt-3">{{user.username}}</p>
+            <a href="/log-out"><button>Log out</button></a>
+        </div>
+    </div>
+
+    <ul class="menu-list">
+        <a onclick="redicrectHome('{{user._id}}')" class="tablinks">
+            <li>Home</li>
+        </a>
+        <a href="/xep-hang" class="tablinks">
+            <li>Rank</li>
+        </a>
+        <a href="/thu-vien" class="tablinks" style="color: red;
+            border-bottom: 2px solid red;">
+            <li>Library</li>
+        </a>
+        {{!-- <a href="/ho-tro" class="tablinks">
+            <li>Hỗ trợ</li>
+        </a> --}}
+        <a href="/nap-the" class="tablinks">
+            <li>Recharge</li>
+        </a>
+        <a href="/images/game/DinoAdventure.exe" class="tablinks">
+            <li>Download</li>
+        </a>
+    </ul>
+
+    <div id="trang_chu" class="tabcontent">
+        <div class="library-body">
+            <div class="library-product">
+                <button class="lblinks" onclick="openLibrary(event, 'monter')" id="defaultOpen">Monter</button>
+                <button class="lblinks" onclick="openLibrary(event, 'map')">Map</button>
+                <button class="lblinks" onclick="openLibrary(event, 'character')">Character</button>
+                <button class="lblinks" onclick="openLibrary(event, 'weapon')">Weapons</button>
+            </div>
+            <div class="library-info">
+                <div id="monter" class="detail-library">
+                    <div class="br-item">
+                        {{#each monters}}
+                        <div class="item-monter itemlinks" type="button" onclick="openItem(event, '{{this._id}}')">
+                            <img src="{{this.image}}">
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div id="map" class="detail-library">
+                    <div class="br-item">
+                        {{#each maps}}
+                        <div class="item-monter itemlinks" type="button" onclick="openItem(event, '{{this._id}}')">
+                            <img src="{{this.image}}">
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div id="character" class="detail-library">
+                    <div class="br-item">
+                        {{#each characters}}
+                        <div class="item-monter itemlinks" type="button" onclick="openItem(event, '{{this._id}}')">
+                            <img src="{{this.image}}">
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div id="weapon" class="detail-library">
+                    <div class="br-item">
+                        {{#each weapons}}
+                        <div class="item-monter itemlinks" type="button" onclick="openItem(event, '{{this._id}}')">
+                            <img src="{{this.image}}">
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{!-- danh sách chi tiết quái vật --}}
+                {{#each monters}}
+                <div id="{{this._id}}" class="detail-item">
+                    <div class = "detail-monter">
+                        <img src="{{this.image}}">
+                        <h3>{{this.name}}</h3>
+                        <h5>Monster type: {{this.category}}</h5>
+                        <h5>Base Health: {{this.hp}}</h5>
+                        <p>Describe: {{this.describes}}</p>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- danh sách chi tiết bản đồ --}}
+                {{#each maps}}
+                <div id="{{this._id}}" class="detail-item">
+                    <div class = "detail-monter">
+                        <img src="{{this.image}}">
+                        <h3>{{this.name}}</h3>
+                        <p>Describe: {{this.information}}</p>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- danh sách chi tiết trang phục --}}
+                {{#each characters}}
+                <div id="{{this._id}}" class="detail-item">
+                    <div class = "detail-monter">
+                        <img src="{{this.image}}">
+                        <h3>{{this.name}}</h3>
+                        <h4>Price: {{this.price}}</h4>
+                        <h4>Requirement Points: {{this.point}}</h4>
+                        <p>Describe: {{this.describes}}</p>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- danh sách chi tiết vũ khí --}}
+                {{#each weapons}}
+                <div id="{{this._id}}" class="detail-item">
+                    <div class = "detail-monter">
+                        <img src="{{this.image}}">
+                        <h3>{{this.name}}</h3>
+                        <h4>Requirement Points: {{this.point}}</h4>
+                        <p>Describe: {{this.describes}}</p>
+                    </div>
+                </div>
+                {{/each}}
+                <div id="null" class="detail-item" style="display: block; font-family: 'VT323';">
+                    <div class = "detail-monter" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                        <h3>Details</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+    const redicrectHome = (_id) => {
+        window.location.href = `user`
+    }
+
+    // mục được chọn khi tải trang
+    document.getElementById("defaultOpen").click();
+
+    // tab danh sách vật phẩm theo mục
+    function openLibrary(evt, libraryName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("detail-library");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("lblinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(libraryName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Tab chi tiết của đối tượng
+    function openItem(evt, itemName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("detail-item");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("itemlinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(itemName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+
+</script>
